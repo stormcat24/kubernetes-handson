@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-echo-spring
+  labels:
+    app: echo
+    release: spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo
+      release: spring
+  template:
+    metadata: 
+      labels:
+        app: echo
+        release: spring
+    spec:
+      containers:
+      - name: nginx
+        image: gihyodocker/nginx:latest
+        env:
+        - name: BACKEND_HOST
+          value: localhost:8080
+        ports:
+        - containerPort: 80
+      - name: echo
+        image: gihyodocker/echo:latest
+        ports:
+         - containerPort: 8080
+
