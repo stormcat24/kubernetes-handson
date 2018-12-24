@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-echo
+  labels:
+    app: echo
+spec:
+  selector:
+    app: echo
+    release: spring 
+  ports:
+    - name: http
+      port: 80 
