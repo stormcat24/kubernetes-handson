@@ -1,0 +1,9 @@
+redmineUsername: gihon 
+redminePassword: gihon
+redmineLanguage: ja
+
+ingress:
+  enabled: true 
+  hosts:
+  - name: redmine.handson.local
+    tls: false
