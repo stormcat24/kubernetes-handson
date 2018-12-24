@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: simple-echo
+  labels:
+    app: echo
+spec:
+  rules:
+  - host: echo.gihyo.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: simple-echo
+          servicePort: 80
