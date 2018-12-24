@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: echo
+  name: simple-echo
   labels:
     app: echo
 spec:
