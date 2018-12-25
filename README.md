@@ -188,8 +188,8 @@ $ helm init —wait
 
 # helm確認
 $ helm version
-Client: &version.Version{SemVer:"v2.12.1", GitCommit:”02a47c7...”, GitTreeState:"clean"}
-Server: &version.Version{SemVer:"v2.12.1", GitCommit:”02a47c7...”, GitTreeState:"clean"}
+Client: &version.Version{SemVer:"v2.12.1", GitCommit:"02a47c7...", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.12.1", GitCommit:"02a47c7...", GitTreeState:"clean"}
 ```
 
 ### 💻Chartの検索
