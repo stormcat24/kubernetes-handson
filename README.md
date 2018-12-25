@@ -184,7 +184,7 @@ $ brew install kubernetes-helm
 https://github.com/helm/helm/releases/tag/v2.12.1
 
 # helm初期化（TillerというPodがデプロイされる）
-$ helm init —wait
+$ helm init --wait
 
 # helm確認
 $ helm version
