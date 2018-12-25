@@ -21,7 +21,7 @@ $ kubectl -n kube-system get pod -l k8s-app=kubernetes-dashboard
 
 ```bash
 # ログイン用ユーザー作成
-$ kubectl apply -f https://raw.githubusercontent.com/stormcat24/kubernetes-handson/master/setup/admin-user.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/stormcat24/kubernetes-handson/master/01-setup/admin-user.yaml
 
 # アクセストークンの表示
 $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
