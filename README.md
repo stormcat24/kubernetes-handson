@@ -206,7 +206,7 @@ $ helm search redmine
 
 ```bash
 # デフォルト値を上書きしてデプロイ
-$ helm install -f 03-helm/redmine-values.yaml --name redmine stable/redmine
+$ helm install -f 03-helm/redmine/redmine-values.yaml --name redmine stable/redmine
 
 # helmで作られたリソースを確認
 $ kubectl get ing,svc,pod -l release=redmine
