@@ -24,7 +24,7 @@ $ kubectl -n kube-system get pod -l k8s-app=kubernetes-dashboard
 $ kubectl apply -f https://raw.githubusercontent.com/stormcat24/kubernetes-handson/master/setup/admin-user.yaml
 
 # アクセストークンの表示
-$ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}’)
+$ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
 ```
 
 ### 💻proxyを実行
@@ -116,7 +116,7 @@ $ kubectl get deploy --selector app=echo
 
 ```bash
 # Serviceを作成
-$ kubectl apply -f 02-resource/simple-service.yaml
+$ kubectl apply -f 02-resource/simple-echo-service.yaml
 
 # 作成したServiceの確認
 $ kubectl get svc --selector app=echo
@@ -169,7 +169,7 @@ $ kubectl apply -f 02-resource/simple-echo-ingress.yaml
 $ kubectl get ing -l app=echo
 
 # クラスタ外（ローカル）から、公開しているIngressに対してリクエストを送る　
-$ curl http://localhost -H 'Host: echo.gihyo.local’
+$ curl http://localhost -H 'Host: echo.gihyo.local'
 ```
 
 ## 💻Helmでアプリケーションをパッケージングする
