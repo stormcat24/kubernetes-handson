@@ -148,7 +148,7 @@ $ kubectl apply -f 02-resource/simple-echo-service.yaml
 debug:/# curl http://simple-echo/
 
 # 今度はsummerの方にリクエストが来る
-$ kubectl logs -f simple-echo-summer-7549994875-6g5vv -c echo
+$ kubectl logs -f simple-echo-summer-xxxxx -c echo
 ```
 
 ### 💻ingress-nginx導入
@@ -184,12 +184,12 @@ $ brew install kubernetes-helm
 https://github.com/helm/helm/releases/tag/v2.12.1
 
 # helm初期化（TillerというPodがデプロイされる）
-$ helm init —wait
+$ helm init --wait
 
 # helm確認
 $ helm version
-Client: &version.Version{SemVer:"v2.12.1", GitCommit:”02a47c7...”, GitTreeState:"clean"}
-Server: &version.Version{SemVer:"v2.12.1", GitCommit:”02a47c7...”, GitTreeState:"clean"}
+Client: &version.Version{SemVer:"v2.12.1", GitCommit:"02a47c7...", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.12.1", GitCommit:"02a47c7...", GitTreeState:"clean"}
 ```
 
 ### 💻Chartの検索
@@ -206,7 +206,7 @@ $ helm search redmine
 
 ```bash
 # デフォルト値を上書きしてデプロイ
-$ helm install -f 03-helm/redmine-values.yaml --name redmine stable/redmine
+$ helm install -f 03-helm/redmine/redmine-values.yaml --name redmine stable/redmine
 
 # helmで作られたリソースを確認
 $ kubectl get ing,svc,pod -l release=redmine
