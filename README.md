@@ -59,7 +59,9 @@ $ kubectl exec -it simple-echo sh -c nginx
 
 # Podを削除
 $ kubectl delete pod simple-echo
-```
+
+# ファイルを使って削除も可能
+$ kubectl delete -f 02-resource/simple-echo.yaml
 
 ### 💻ReplicaSetの作成
 
@@ -172,6 +174,17 @@ $ kubectl get ing -l app=echo
 $ curl http://localhost -H 'Host: echo.gihyo.local'
 ```
 
+## 休憩
+
+休憩中に作成したリソースを削除しておいてください🙏
+
+```bash
+$ kubectl delete -f 02-resource/simple-echo-ingress.yaml
+$ kubectl delete -f 02-resource/simple-echo-service.yaml
+$ kubectl delete -f 02-resource/simple-echo-deployment-summer.yaml
+$ kubectl delete -f 02-resource/simple-echo-deployment-spring.yaml
+```
+
 ## 💻Helmでアプリケーションをパッケージングする
 
 ### 💻Helmセットアップ
@@ -220,4 +233,26 @@ $ helm ls
 
 # hostsでIngressに設定したドメインを追加
 $ helm del --purge redmine
+```
+
+## skaffoldでいい感じに開発を回してみる
+
+### kustomize+kubectl
+
+```bash
+# マニフェストを構築して標準出力に表示
+$ kustomize build 04-skaffold/kustomize
+
+# 一気にデプロイ
+$ kustomize build 04-skaffold/kustomize | kubectl apply -f -
+
+# 一気に削除
+$ kustomize build 04-skaffold/kustomize | kubectl delete -f -
+```
+
+### kustomizeとskaffold組み合わせ
+
+```bash
+# devコマンドで、デプロイと変更検知の待機
+$ skaffold dev
 ```
